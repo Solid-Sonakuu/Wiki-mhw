@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cartes index{% endblock %}
+
+{% block body %} 
+
+    <h1>Régions</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Campement possible</th>
+                <th>Nombre de secteur</th>
+                <th>id monstres</th>
+                <th>Voir les détail/Edition</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for carte in cartes %}
+            <tr>
+                <td>{{ carte.id }}</td>
+                <td>{{ carte.nom }}</td>
+                <td>{{ carte.campement }}</td>
+                <td>{{ carte.nombredesecteur }}</td>
+                <td>{{ carte.idmonstres }}</td>
+                <td>
+                    <a href="{{ path('cartes_show', {'id': carte.id}) }}">show</a>
+                    <a href="{{ path('cartes_edit', {'id': carte.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('cartes_new') }}">Create new</a>
+{% endblock %}

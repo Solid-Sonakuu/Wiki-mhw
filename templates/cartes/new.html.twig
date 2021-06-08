@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Cartes{% endblock %}
+
+{% block body %}
+    <h1>Create new Cartes</h1>
+{{ form_start (form) }}
+
+    {{ form_row(form.images) }}
+  {{form_end(form) }}
+  
+    {{ include('cartes/_form.html.twig') }}
+
+    <a href="{{ path('cartes_index') }}">back to list</a>
+{% endblock %}

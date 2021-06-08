@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Monstre index{% endblock %}
+
+{% block body %}
+    <h1>Monstre index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Element</th>
+                <th>Faiblesses</th>
+                <th>Resistances</th>
+                <th>Armure_id</th>
+                <th>Arme_id</th>
+                <th>Edition</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for monstre in monstres %}
+            <tr>
+                <td>{{ monstre.id }}</td>
+                <td>{{ monstre.nom }}</td>
+                <td>{{ monstre.type }}</td>
+                <td>{{ monstre.element }}</td>
+                <td>{{ monstre.faiblesses }}</td>
+                <td>{{ monstre.resistances }}</td>
+                <td>{{ monstre.Armureid }}</td>
+                <td>{{ monstre.Armeid }}</td>
+                <td>
+                    <a href="{{ path('monstre_show', {'id': monstre.id}) }}">show</a>
+                    <a href="{{ path('monstre_edit', {'id': monstre.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('monstre_new') }}">Create new</a>
+{% endblock %}

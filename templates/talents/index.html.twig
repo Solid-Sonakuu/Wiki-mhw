@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Talents index{% endblock %}
+
+{% block body %}
+    <h1>Liste des talents  </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Niveau</th>
+                <th>Effets</th>
+                <th>Edition</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for talent in talents %}
+            <tr>
+                <td>{{ talent.id }}</td>
+                <td>{{ talent.nom }}</td>
+                <td>{{ talent.niveau }}</td>
+                <td>{{ talent.effets }}</td>
+                <td>
+                    <a href="{{ path('talents_show', {'id': talent.id}) }}">show</a>
+                    <a href="{{ path('talents_edit', {'id': talent.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('talents_new') }}">Create new</a>
+{% endblock %}

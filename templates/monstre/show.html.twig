@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Monstre{% endblock %}
+
+{% block body %}
+    <h1>Monstre</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ monstre.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ monstre.nom }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ monstre.type }}</td>
+            </tr>
+            <tr>
+                <th>Element</th>
+                <td>{{ monstre.element }}</td>
+            </tr>
+            <tr>
+                <th>Faiblesses</th>
+                <td>{{ monstre.faiblesses }}</td>
+            </tr>
+            <tr>
+                <th>Resistances</th>
+                <td>{{ monstre.resistances }}</td>
+            </tr>
+            <tr>
+                <th>ArmureId</th>
+                <td>{{ monstre.ArmureId }}</td>
+            </tr>
+            <tr>
+                <th>ArmeId</th>
+                <td>{{ monstre.ArmeId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('monstre_index') }}">back to list</a>
+
+    <a href="{{ path('monstre_edit', {'id': monstre.id}) }}">edit</a>
+
+    {{ include('monstre/_delete_form.html.twig') }}
+{% endblock %}
